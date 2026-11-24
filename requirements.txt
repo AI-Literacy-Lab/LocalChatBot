@@ -1,0 +1,26 @@
+# Local RAG chatbot (Streamlit + Ollama + ChromaDB)
+# Python 3.10 or newer. Install with:  pip install -r requirements.txt
+#
+# Also required, but NOT installed by pip: Ollama (https://ollama.com), plus these models:
+#   ollama pull nomic-embed-text
+#   ollama pull llama3.2:3b
+
+# Web UI (chat_message / chat_input / toggle / rerun need 1.30+)
+streamlit>=1.30
+
+# Vector math for the NumPy store and the embedding helpers
+numpy>=1.24
+
+# HTTP client used to talk to Ollama
+requests>=2.28
+
+# Persistent vector database. Optional: if it can't be imported, the app
+# falls back to the in-memory NumPy store.
+chromadb>=0.5
+
+# ---------------------------------------------------------------------------
+# Optional: only if you set EMBED_BACKEND=st (local sentence-transformers
+# embeddings instead of Ollama). Pulls in torch and scikit-learn, which some
+# locked-down machines block, so it is left out by default.
+# sentence-transformers>=2.7
+# ---------------------------------------------------------------------------
